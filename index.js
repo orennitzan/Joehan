@@ -4,3 +4,5 @@
 //     const dRate = await dollarScraper.getDollarRate();
 //     console.log(`Current dollar rate is: ${dRate}`);
 // })();
+
+
