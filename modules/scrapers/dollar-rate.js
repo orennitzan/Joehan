@@ -4,13 +4,13 @@ const getDollarRate = async () => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(
-    'https://www.boi.org.il/he/Markets/ExchangeRates/Pages/Default.aspx'
+    'http://www.bizportal.co.il/forex/quote/generalview/22212222'
   );
 
   // eslint-disable-next-line no-undef
-  const rate = await page.evaluate(() => $(
-      '#BoiCurrencyExchangeRatesTab > table.BoiExchangeRateSearchTable.ng-table.responsive > tbody > tr:nth-child(2) > td.small-padding.tdno3 > div.tableTRText'
-    ).text());
+  const rate = await page.evaluate(() =>
+    $('body > div.container.body-content > section > article.top-area > div.data-row > span:nth-child(1)').text()
+  );
   // console.log(rate);
   await browser.close();
 
