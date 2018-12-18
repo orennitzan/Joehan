@@ -2,7 +2,7 @@ const fp = require('lodash/fp');
 const joi = require('joi');
 const db = require('../../db');
 
-const tableName = 'dollar-daily-rate';
+const tableName = 'dollar_daily_rate';
 
 const insertSchema = joi
   .object({
@@ -22,17 +22,17 @@ async function insert(params) {
 
 const readSchema = joi
   .object({
-    startDate: joi.date(),
-    endDate: joi.date()
+    create_date: joi.array()
+
   })
-  .and('startDate', 'startDate')
   .required();
 
+// Expects:{ create_date: ['2018-12-10T17:02:25.669886Z', '2018-12-18T17:02:25.669886Z'] }
 async function readByDates(params) {
-  const selection = joi.attempt(params, readSchema);
-
+  // const selection = joi.attempt(params, readSchema);
+  console.log(params);
   return db(tableName)
-    .whereBetween('create_date', selection)
+    .whereBetween('create_date', params)
     .select();
 }
 

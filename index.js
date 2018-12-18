@@ -1,15 +1,23 @@
-// const dollarScraper = require('./modules/scrapers/dollar-rate');
+const logger = require('./helpers/logger.js').getLogger();
 
-const dollarWorker = require('./modules/workers/dollar-rate-worker')
+logger.info('index.js - Starting...');
 
-dollarWorker.doWork();
+// Initiation
+require('./helpers/init');
+
+// validate configs (using joi)
+require('./config');
+
+logger.info(
+    'index.js - Validation of configurations and env variables succeeded.'
+);
 
 
-// (async () => {
-//     // const dRate = await dollarScraper.getDollarRate();
-//     // console.log(`Current dollar rate is: ${dRate}`);
+// const dollarWorker = require('./modules/workers/dollar-rate-worker')
 
+// dollarWorker.doWork();
 
-// })();
+const dollarRate = require('./modules/data-access/dollar-rate-access');
 
+dollarRate.readByDates(['2018-12-10T17:02:25.669886Z', '2018-12-19T17:02:25.669886Z']).then((res) => console.log(res))
 
