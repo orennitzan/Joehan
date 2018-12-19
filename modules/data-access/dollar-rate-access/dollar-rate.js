@@ -27,10 +27,9 @@ const readSchema = joi
   })
   .required();
 
-// Expects:{ create_date: ['2018-12-10T17:02:25.669886Z', '2018-12-18T17:02:25.669886Z'] }
+// Expects array (for ):['2018-12-10T17:02:25.669886Z', '2018-12-18T17:02:25.669886Z']
 async function readByDates(params) {
-  // const selection = joi.attempt(params, readSchema);
-  console.log(params);
+  joi.attempt(params, readSchema);
   return db(tableName)
     .whereBetween('create_date', params)
     .select();

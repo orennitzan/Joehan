@@ -34,6 +34,7 @@
     "joi": "^14.3.0",
     "knex": "^0.16.2",
     "lodash": "^4.17.11",
+    "node-cron": "^2.0.3",
     "pg": "^7.7.1",
     "postgres-migrations": "^2.0.3",
     "puppeteer": "^1.11.0",

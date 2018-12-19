@@ -13,11 +13,4 @@ logger.info(
 );
 
 
-// const dollarWorker = require('./modules/workers/dollar-rate-worker')
-
-// dollarWorker.doWork();
-
-const dollarRate = require('./modules/data-access/dollar-rate-access');
-
-dollarRate.readByDates(['2018-12-10T17:02:25.669886Z', '2018-12-19T17:02:25.669886Z']).then((res) => console.log(res))
-
+require('./modules/schedulers')
