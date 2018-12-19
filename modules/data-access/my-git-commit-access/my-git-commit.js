@@ -3,21 +3,22 @@ const joi = require('joi');
 const db = require('../../db');
 const logger = require('../../../helpers/logger').getLogger();
 
-const tableName = 'dollar_daily_rate';
+const tableName = 'my_git_commit';
 
 const insertSchema = joi
   .object({
-    rate: joi.number().required()
+    commits: joi.number().required()
   })
   .required();
 
 // Expect: {rate: 3.7710}
 async function insert(params) {
   logger.info(`Inserting into ${tableName}.`)
-  const dRate = joi.attempt(params, insertSchema);
+
+  const myCommits = joi.attempt(params, insertSchema);
 
   return db(tableName)
-    .insert(dRate)
+    .insert(myCommits)
     .returning('*')
     .then(fp.first);
 }

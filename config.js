@@ -4,6 +4,12 @@ const joi = require('joi');
 
 const envVarsSchema = joi
   .object({
+    GIT_USER: joi
+      .string()
+      .required(),
+    GIT_PASS: joi
+      .string()
+      .required(),
     PORT: joi
       .number()
       .min(99)
@@ -65,7 +71,9 @@ const config = {
       tableName: 'migrations'
     },
     pool: { min: 0, max: 10 } // Note that the default is 2-10. See: https://knexjs.org/#Installation-pooling
-  }
+  },
+  gitUser: envVars.GIT_USER,
+  gitPass: envVars.GIT_PASS
 };
 
 module.exports = config;

@@ -1,1 +1,1 @@
-module.exports = require('./dollar-rate-worker')
+module.exports = require('./dollar-rate-worker');
