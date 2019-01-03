@@ -4,12 +4,8 @@ const joi = require('joi');
 
 const envVarsSchema = joi
   .object({
-    GIT_USER: joi
-      .string()
-      .required(),
-    GIT_PASS: joi
-      .string()
-      .required(),
+    GIT_USER: joi.string().required(),
+    GIT_PASS: joi.string().required(),
     PORT: joi
       .number()
       .min(99)

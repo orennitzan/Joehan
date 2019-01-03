@@ -13,7 +13,7 @@ const insertSchema = joi
 
 // Expect: {rate: 3.7710}
 async function insert(params) {
-  logger.info(`Inserting into ${tableName}.`)
+  logger.info(`Inserting into ${tableName}.`);
 
   const myCommits = joi.attempt(params, insertSchema);
 

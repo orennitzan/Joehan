@@ -13,7 +13,7 @@ const getMyGitCommits = async () => {
 
   await page.goto('https://github.com/login');
 
-  await page.evaluate((conf) => {
+  await page.evaluate(conf => {
     // eslint-disable-next-line no-undef
     document.getElementById('login_field').value = conf.gitUser;
     // eslint-disable-next-line no-undef

@@ -9,12 +9,11 @@ require('./helpers/init');
 require('./config');
 
 logger.info(
-    'index.js - Validation of configurations and env variables succeeded.'
+  'index.js - Validation of configurations and env variables succeeded.'
 );
 
 try {
-    require('./modules/schedulers'); // eslint-disable-line global-require
-}
-catch (ex) {
-    logger.error('schedulers Error: ', ex);
+  require('./modules/schedulers'); // eslint-disable-line global-require
+} catch (ex) {
+  logger.error('schedulers Error: ', ex);
 }

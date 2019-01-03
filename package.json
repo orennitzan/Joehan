@@ -14,7 +14,7 @@
     "migratedb": "node  modules/migrate/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Oren Nitzan",
   "license": "MIT",
   "devDependencies": {
     "eslint": "^5.10.0",
